@@ -1,0 +1,31 @@
+﻿ 
+
+<div ng-repeat="service in services">
+    <div class="row">
+        <div class="col-lg-3">
+            <h4>服务名称：<span ng-bind="service.ServiceName" class="label label-info"></span></h4>
+        </div>
+        <div class="col-lg-2">
+            <button class="btn btn-info" ng-show="service.RateUrl" ng-click="gotochart(service.ServiceName)">服务速率</button>
+        </div>
+    </div>
+    
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>地址</th>
+            <th>健康状态</th>
+            <th>反应速度(单位S)</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="url in service.ServiceCheckUrls">
+            <td><span ng-bind="url.Url"></span></td>
+            <td><span ng-class="{true:'label label-success',false:'label label-danger'}[url.IsGood]"><span ng-class="{true:'glyphicon glyphicon-leaf',false:'glyphicon  glyphicon-fire'}[url.IsGood]"></span></span> </td>
+            <td><span ng-bind="url.Rate"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+ 

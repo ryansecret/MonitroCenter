@@ -1,0 +1,23 @@
+﻿ 
+<div>
+    <select ng-options="step.text for step in timeSteps" ng-model="selectedStep"></select>
+    <div ng-bind="test">
+    </div>
+    <div class="span12">
+        <form class="form">
+            Min: <input type="number" ng-model="chartConfig.xAxis.currentMin">
+            Max: <input type="number" ng-model="chartConfig.xAxis.currentMax">
+        </form>
+        <br/>
+        <button class="btn btn-primary" ng-click="addSeries()">Add Series</button>
+        <button class="btn btn-primary" ng-click="addPoints()">Add Points to Random Series</button>
+        <button class="btn btn-primary" ng-click="removeRandomSeries()">Remove Random Series</button>
+        <button class="btn btn-primary" ng-click="toggleLoading()">Loading?</button>
+        <p>Try zooming on the chart also...</p>
+    </div>
+    <div class="row">
+        <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+    </div>
+</div>
+ 
+ 

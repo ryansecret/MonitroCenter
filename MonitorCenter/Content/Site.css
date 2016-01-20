@@ -1,0 +1,62 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.ng-enter {
+-webkit-transition: all 1s linear;
+-moz-transition: all 1s linear;
+-ms-transition: all 1s linear;
+-o-transition: all 1s linear;
+transition: all 1s linear;
+opacity: 0;
+}
+.ng-enter-active {
+opacity: 1;
+}
+
+.ng-leave {
+-webkit-transition: all 1s linear;
+-moz-transition: all 1s linear;
+-ms-transition: all 1s linear;
+-o-transition: all 1s linear;
+transition: all 1s linear;
+opacity: 1;
+}
+.ng-leave-active {
+opacity: 0;
+}
+
+.ng-hide-add {
+-webkit-transition: all 1s linear;
+-moz-transition: all 1s linear;
+-ms-transition: all 1s linear;
+-o-transition: all 1s linear;
+transition: all 1s linear;
+opacity: 1;
+}
+.ng-hide-add-active {
+display: block !important;
+opacity: 0;
+}
