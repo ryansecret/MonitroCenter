@@ -17,6 +17,8 @@ namespace Monitor.Service.Utility
             serviceHealth.ServiceCheckUrls.Add(new HealthItem(){Url =url,TimeLimit = 5000});
             serviceHealth.ServiceCheckUrls.Add(new HealthItem(){Url =url,TimeLimit = 300});
             serviceHealths.Add(serviceHealth);
+            serviceHealths.Add(serviceHealth);
+            serviceHealths.Add(serviceHealth);
             return serviceHealths;
         }
     }

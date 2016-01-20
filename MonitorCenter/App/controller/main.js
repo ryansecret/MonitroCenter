@@ -20,19 +20,21 @@ app.controller('MainCtrl', function ($scope, $http, $interval, timerCancelServic
         $scope.services.forEach(function(s) {
             s.ServiceCheckUrls.forEach(function (u) {
                // $http({ method: 'POST', url: "api/Monitor/GetHealthInfo", data: { 'url': u.URL, 'seconds': u.TimeLimit } }).success
+                if (u.Url) {
+                    var url = "api/Monitor/GetHealthInfo?url=" + u.Url + "&seconds=" + u.TimeLimit;
 
-                var url = "api/Monitor/GetHealthInfo?url=" + u.Url + "&seconds=" + u.TimeLimit;
-                
-                 var timer= $interval(function () {
-                    $http.get(url).success(function (d) {
-                        u.IsGood = true;
-                        u.Rate = d;
-                    }).error(function (d) {
-                        u.IsGood = false;
-                        u.Rate = d;
-                    });
-                }, 1500);
-                timerCancelService.addTimer(timer);
+                    var timer = $interval(function () {
+                        $http.get(url).success(function (d) {
+                            u.IsGood = true;
+                            u.Rate = d;
+                        }).error(function (d) {
+                            u.IsGood = false;
+                            u.Rate = d;
+                        });
+                    }, 1500);
+                    timerCancelService.addTimer(timer);
+                }
+               
             });
         });
     }).error(function (data, status, headers, config) {
